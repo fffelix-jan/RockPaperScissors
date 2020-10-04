@@ -27,7 +27,8 @@ public class Main
             }
         }
         
-        boolean computerPlay;
+        boolean computerPlay;   // true if the user wants to play against the computer, false otherwise
+        // the two objects below are used by the computer player
         String[] cpuChoices = {"r", "p", "s"};  // this array stores the choices that the computer is able to make
         Random rand = new Random(); // used by the computer to choose randomly
         
@@ -38,19 +39,22 @@ public class Main
         }
         
         System.out.println("OK, time to play.");
+
+        // make string objects to store the choices
         String player1choice = "";
         String player2choice = "";
         
         // the actual game loops forever until the user wants to quit by typing q
         for (;;) {
             System.out.println("Player One: (r)ock, (p)aper, (s)cissors or (q)uit game?");
-            while (!(player1choice.equals("r") || player1choice.equals("p") || player1choice.equals("s") || player1choice.equals("q"))) {
+            while (!(player1choice.equals("r") || player1choice.equals("p") || player1choice.equals("s") || player1choice.equals("q"))) {   // loop until a valid choice is chosen
                 player1choice = br.readLine().toLowerCase();
                 if ((!(player1choice.equals("r") || player1choice.equals("p") || player1choice.equals("s") || player1choice.equals("q")))) {
                     System.out.println("Invalid choice! Type either r, p, s or q!");
                 }
             }
             
+            // return out of the main function if the user wants to quit
             if (player1choice.equals("q")) {
                 System.out.println("Thanks for playing!");
                 return;
@@ -70,6 +74,7 @@ public class Main
                     return;
                 }
 
+            // computer's action
             } else {
                 player2choice = cpuChoices[rand.nextInt(3)]; // the computer player picks a random choice from the array of choices
                 System.out.println("Computer chose " + player2choice);
@@ -98,7 +103,7 @@ public class Main
                 }
             }
 
-            // clear the variables for the next round
+            // clear the strings for the next round
             player1choice = "";
             player2choice = "";
             System.out.println("Time for the next round...");
