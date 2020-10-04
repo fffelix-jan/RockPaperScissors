@@ -28,7 +28,7 @@ public class Main
         }
         
         boolean computerPlay;   // true if the user wants to play against the computer, false otherwise
-        // the two objects below are used by the computer player
+        // the string array and random number generator below are used by the computer player
         String[] cpuChoices = {"r", "p", "s"};  // this array stores the choices that the computer is able to make
         Random rand = new Random(); // used by the computer to choose randomly
         
